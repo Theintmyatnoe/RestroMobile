@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">RestroMobile</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="dine_in">Dine in</string>
+    <string name="take_away">Take away</string>
+    <string name="orders">Orders</string>
+    <string name="invoice">Invoice</string>
+
+<!--    Category-->
+    <string name="seafood">Seafood</string>
+    <string name="noodle">Noodle</string>
+    <string name="soup">Soup</string>
+    <string name="drink">Drink</string>
+    <string name="rice">Rice</string>
+    <string name="salad">Salad</string>
+    <string name="chicken">Chicken</string>
+    <string name="fish">fish</string>
+
+    <string name="save">Save</string>
 </resources>

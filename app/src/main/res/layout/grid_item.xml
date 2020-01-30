@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:id="@+id/mybg"
+
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:id="@+id/table_img"
+            android:backgroundTint="#AFA7A7"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_dinner"/>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/table_name"
+            android:textSize="16dp"
+            android:text="A0"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+

@@ -18,8 +18,15 @@ import com.example.restromobile.delegate.SendIdDelegate
 
 class FirstFloorFragment : Fragment(), SendIdDelegate {
     override fun sendId(tableID: String) {
+        tableList= appDatabase!!.getTableDAO().getAllTablesByTableID(tableID)
+        for (tables in tableList!!){
+            tableNo=tables.TableName
+        }
+
         val intent= Intent(activity, FoodOrderActivity::class.java)
         intent.putExtra("TableID",tableID)
+        intent.putExtra("TableNo",tableNo)
+        intent.putExtra("CustomerType","Dine in")
         startActivity(intent)
         activity!!.finish()
     }
@@ -30,16 +37,17 @@ class FirstFloorFragment : Fragment(), SendIdDelegate {
 
     private var tableList:List<Tables>?= arrayListOf()
     private var appDatabase: AppDatabase?=null
+    private var tableNo:String?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_first_floor, container, false)
-        val gridView=view.findViewById<GridView>(R.id.grdImages)
+        val grdView=view.findViewById<GridView>(R.id.grdImages)
         appDatabase= this.activity?.let { AppDatabase.getDatabase(it) }
         tableList=appDatabase!!.getTableDAO().getAllTablesByFloor("First Floor")
 
         val adapter= activity?.let { tableList?.let { it1 -> GridViewAdapter(it, it1) } }
-        gridView.adapter=adapter
+        grdView.adapter=adapter
         adapter!!.sendItemIDForTable(this)
 
         return view

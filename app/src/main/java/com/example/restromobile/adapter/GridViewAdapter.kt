@@ -18,8 +18,9 @@ class GridViewAdapter(private var context: Context, private var tableList: List<
         val itemView=layoutInflater.inflate(R.layout.grid_item,parent,false)
         val tableName=itemView.findViewById<TextView>(R.id.table_name)
         tableName.text= tableList[position].TableName
-        strtableID=tableList[position].TableID
+
         itemView.setOnClickListener{
+            strtableID=tableList[position].TableID
             sendIdDelegate!!.sendId(strtableID!!)
         }
 

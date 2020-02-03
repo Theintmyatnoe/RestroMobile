@@ -19,4 +19,17 @@
     <string name="fish">fish</string>
 
     <string name="save">Save</string>
+    <string name="_10">10</string>
+    <string name="name">Name</string>
+    <string name="qty">Qty</string>
+    <string name="price">Price</string>
+    <string name="order">Order</string>
+    <string name="_11">11</string>
+    <string name="total">Total :</string>
+    <string name="invoice_no">Invoice No</string>
+    <string name="table">Table</string>
+    <string name="date">Date</string>
+    <string name="item_name">Item Name</string>
+    <string name="status">Status</string>
+    <string name="floor">Floor</string>
 </resources>

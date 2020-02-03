@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_date"
+        android:padding="10dp"
+        android:background="@color/colorLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/date_back"
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_back"/>
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_gravity="center_vertical"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_height="wrap_content"
+            android:text="@string/date"/>
+        <ImageView
+            android:id="@+id/date_next"
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_next"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_date"
+        android:layout_margin="5dp"
+        android:id="@+id/ll">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Invoice No"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cus Type"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            />
+        <TextView
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Table No"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            />
+        <TextView
+            android:textAlignment="viewEnd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Price"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:gravity="end" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBlack"
+        android:layout_below="@+id/ll"
+        android:id="@+id/v"
+        android:layout_margin="5dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v"
+        android:id="@+id/invoice_list_recycler"/>
+
+</RelativeLayout>

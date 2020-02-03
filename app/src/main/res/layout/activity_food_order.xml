@@ -4,83 +4,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <include layout="@layout/custom_menu_bar" />
+
+    <GridView
+        android:id="@+id/grdImages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    app:cardElevation="4dp"
-                    android:layout_margin="10dp">
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/category_spinner"/>
-                </androidx.cardview.widget.CardView>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/menu_list_recycler"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        android:numColumns="3"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:columnWidth="90dp"
+        android:stretchMode="columnWidth"
+        />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginTop="10dp">
-                    <LinearLayout
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                    <TextView
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Item"
-                        android:layout_weight="1.5"/>
-                    <TextView
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Qty"
-                        android:layout_weight="0.5"/>
-                    <TextView
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Price"
-                        android:layout_weight="1"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/item_list_recycler"/>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
 </LinearLayout>

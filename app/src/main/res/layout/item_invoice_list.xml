@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/ll">
+        <TextView
+            android:id="@+id/invoice_no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Invoice No"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            />
+
+        <TextView
+            android:id="@+id/cust_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cus Type"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            />
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/table_no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Table No"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            />
+        <TextView
+            android:textAlignment="viewEnd"
+            android:id="@+id/total_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Price"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:gravity="end" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBlack"
+        android:id="@+id/v2"/>
+</LinearLayout>

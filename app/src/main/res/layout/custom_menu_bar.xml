@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:src="@drawable/ic_back_24dp" />
+            <Spinner
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_back"
+                android:textColor="@color/colorWhite"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:id="@+id/category_spinner"
+                android:layout_toEndOf="@+id/img_back"
+                android:layout_marginLeft="10dp"/>
+            <RelativeLayout
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/badge_layout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true">
+                <RelativeLayout
+                    android:id="@+id/relative_layout"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+                    <Button
+                        android:layout_centerVertical="true"
+                        android:id="@+id/btn_order"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_supermarket" />
+                </RelativeLayout>
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/relative_layout"
+                    android:background="@drawable/item_count"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    android:text="@string/_10"
+                    android:textStyle="bold"
+                    android:layout_alignEnd="@id/relative_layout"
+                    android:layout_marginRight="8dp"
+                    android:padding="2dp"
+                    android:layout_marginEnd="8dp" />
+            </RelativeLayout>
+
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:src="@drawable/ic_supermarket"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:id="@+id/img_order"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginEnd="10dp" />-->
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>

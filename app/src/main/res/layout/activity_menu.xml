@@ -40,11 +40,17 @@
         </LinearLayout>
 
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
+    <ScrollView
         android:layout_below="@+id/ll_spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/menu_list_recycler"/>
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/menu_list_recycler"/>
+    </ScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fb_add_menu"

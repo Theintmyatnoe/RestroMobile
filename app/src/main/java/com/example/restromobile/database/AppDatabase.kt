@@ -4,18 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.restromobile.database.dao.CategoryDAO
-import com.example.restromobile.database.dao.MenuItemDAO
-import com.example.restromobile.database.dao.TableDAO
-import com.example.restromobile.database.model.Categories
-import com.example.restromobile.database.model.MenusItem
-import com.example.restromobile.database.model.Tables
+import com.example.restromobile.database.dao.*
+import com.example.restromobile.database.model.*
 
-@Database(entities = [Tables::class,Categories::class,MenusItem::class],version = 1)
+@Database(entities = [Tables::class,Categories::class,MenusItem::class,OrderTable::class,InvoiceTable::class],version = 1)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun getTableDAO():TableDAO
     abstract fun getCategoryDAO():CategoryDAO
     abstract fun getMenuItemDAO():MenuItemDAO
+    abstract fun getOrderDAO():OrderTablesDAO
+    abstract fun getInvoiceDAO():InvoiceDAO
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null

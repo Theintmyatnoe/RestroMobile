@@ -30,6 +30,8 @@
         <activity android:name=".activity.CategoryListActivity" />
         <activity android:name=".activity.AddMenuListActivity" />
         <activity android:name=".activity.FoodOrderActivity" />
+        <activity android:name=".activity.OrderListActivity" />
+        <activity android:name=".activity.InvoiceListActivity" />
     </application>
 
 </manifest>

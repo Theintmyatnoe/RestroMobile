@@ -90,6 +90,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
             finish()
         }
+        ll_order.setOnClickListener{
+            val intent=Intent(this,OrderListActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        ll_invoice.setOnClickListener{
+            val intent=Intent(this,InvoiceListActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        ll_carryout.setOnClickListener{
+            val intent=Intent(this,FoodOrderActivity::class.java)
+            intent.putExtra("CustomerType","Take Away")
+            startActivity(intent)
+            finish()
+        }
 
     }
 

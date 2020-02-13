@@ -13,6 +13,7 @@ import com.example.restromobile.R
 import com.example.restromobile.database.model.MenusItem
 import com.example.restromobile.database.model.Tables
 import com.example.restromobile.delegate.SendIdDelegate
+import java.text.DecimalFormat
 
 class MenuListAdapter(private var context: Context, private var menuList: List<MenusItem>, private var delegate: SendIdDelegate) : RecyclerView.Adapter<MenuListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuListAdapter.ViewHolder {
@@ -47,8 +48,11 @@ class MenuListAdapter(private var context: Context, private var menuList: List<M
             var imageView=itemView.findViewById(R.id.menu_item_img_info) as ImageView
             var llMenu=itemView.findViewById<LinearLayout>(R.id.ll_menu_item)
 
+            val dec = DecimalFormat("#,###.##")
+
             tvMenuName.text = menusItem.Menu_ItemName
-            tvPrice.text=menusItem.Price
+            val price=menusItem.Price
+            tvPrice.text=dec.format(price.toInt())+"ks"
             imageView.setImageURI(Uri.parse(menusItem.ImageUri))
             menuItemID=menusItem.Menu_itemID
 

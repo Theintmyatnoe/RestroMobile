@@ -11,6 +11,7 @@ import com.example.restromobile.R
 import com.example.restromobile.database.model.MenusItem
 import com.example.restromobile.database.model.Tables
 import com.example.restromobile.delegate.SendIdDelegate
+import java.text.DecimalFormat
 
 class FoodOrderMenuGridAdapter(private var context: Context, private var menulist: List<MenusItem>): BaseAdapter() {
     private var menuItemID:String?=""
@@ -23,17 +24,25 @@ class FoodOrderMenuGridAdapter(private var context: Context, private var menulis
         var imageView=itemView.findViewById(R.id.menu_item_img_info) as ImageView
         val btnAddToOrder=itemView.findViewById<Button>(R.id.btn_to_order)
 
+        val dec = DecimalFormat("#,###.##")
+
         tvMenuName.text = menulist[position].Menu_ItemName
-        tvPrice.text=menulist[position].Price
+        val price=menulist[position].Price
+        tvPrice.text=dec.format(price.toInt())
         imageView.setImageURI(Uri.parse(menulist[position].ImageUri))
 //        menuItemID=menulist[position].Menu_itemID
+
+        itemView.setOnClickListener {
+            menuItemID= menulist[position].Menu_itemID
+
+            sendIdDelegate?.sendId(menuItemID!!)
+        }
 
         btnAddToOrder.setOnClickListener {
             menuItemID= menulist[position].Menu_itemID
 
             sendIdDelegate?.sendId(menuItemID!!)
         }
-
 
         return itemView
     }

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restromobile.R
 import com.example.restromobile.database.AppDatabase
 import com.example.restromobile.database.model.InvoiceTable
-import kotlinx.android.synthetic.main.activity_orders.*
 
 class InvoiceListForOrderAdapter (private var context: Context, private var invoiceList: List<InvoiceTable>) : RecyclerView.Adapter<InvoiceListForOrderAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InvoiceListForOrderAdapter.ViewHolder {
@@ -43,7 +42,7 @@ class InvoiceListForOrderAdapter (private var context: Context, private var invo
             val tvTableNo=itemView.findViewById<TextView>(R.id.tv_table_no)
             val tvInvoiceNo=itemView.findViewById<TextView>(R.id.tv_invoice_no)
             val tvdate=itemView.findViewById<TextView>(R.id.tv_date)
-            var tvfloor=itemView.findViewById<TextView>(R.id.tv_floor_info)
+            val tvfloor=itemView.findViewById<TextView>(R.id.tv_floor_info)
             val tvTotal=itemView.findViewById<TextView>(R.id.tv_Total)
             val orderRecycler=itemView.findViewById<RecyclerView>(R.id.order_item_list_recycler)
 
@@ -74,25 +73,10 @@ class InvoiceListForOrderAdapter (private var context: Context, private var invo
             if (orderList.isNotEmpty()){
                 val linearLayoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
                 orderRecycler.layoutManager = linearLayoutManager
-                val adapter = OrderItemListAdapter(context, orderList!!)
+                val adapter = OrderItemListAdapter(context, orderList)
                 orderRecycler.adapter=adapter
             }
 
-//            val tvMenuName = itemView.findViewById(R.id.menu_name_info) as TextView
-//            val tvPrice  = itemView.findViewById(R.id.menu_price_info) as TextView
-//            var imageView=itemView.findViewById(R.id.menu_item_img_info) as ImageView
-//            var llMenu=itemView.findViewById<LinearLayout>(R.id.ll_menu_item)
-//
-//            tvMenuName.text = menusItem.Menu_ItemName
-//            tvPrice.text=menusItem.Price
-//            imageView.setImageURI(Uri.parse(menusItem.ImageUri))
-//            menuItemID=menusItem.Menu_itemID
-//
-//            llMenu.setOnClickListener {
-//
-//                delegate.sendId(menuItemID!!)
-//            }
-//            llMenu.setOnLongClickListener(this)
 
         }
     }

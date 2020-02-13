@@ -18,7 +18,7 @@ class AddCategoryActivity: AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         val strCategory=edt_category.text.toString().trim()
         if (strCategory==""){
-            edt_category.error="Categories is required!"
+            edt_category.error="Category is required!"
             edt_category.requestFocus()
             return
         }

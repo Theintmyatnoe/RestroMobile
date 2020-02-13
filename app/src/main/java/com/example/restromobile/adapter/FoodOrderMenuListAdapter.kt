@@ -17,6 +17,7 @@ import com.example.restromobile.database.obj.ItemListObj
 import com.example.restromobile.delegate.SendIdDelegate
 import com.example.restromobile.delegate.SendPositionForListDelegate
 import com.example.restromobile.delegate.SendRemovePositionDelegate
+import java.text.DecimalFormat
 
 class FoodOrderMenuListAdapter (private var context: Context,
                                 private var itemListObj: ArrayList<ItemListObj>,
@@ -77,9 +78,13 @@ class FoodOrderMenuListAdapter (private var context: Context,
             val imgRemove=itemView.findViewById<ImageView>(R.id.img_remove)
             val imgAdd=itemView.findViewById<ImageView>(R.id.img_add_qty)
             val imgMinus=itemView.findViewById<ImageView>(R.id.img_remove_qty)
+
+            val dec = DecimalFormat("#,###.##")
+
             tvItemName.text=itemListObj.itemName
             tvItemQty.text=itemListObj.qty
-            tvItemPrice.text=itemListObj.price
+            var price=itemListObj.price
+            tvItemPrice.text=dec.format(price.toInt())
             menusitemID=itemListObj.itemID
 
             appDatabase= AppDatabase.getDatabase(context)
@@ -96,8 +101,7 @@ class FoodOrderMenuListAdapter (private var context: Context,
             var qty=tvItemQty.text.toString()
             qtyInt=qty.toInt()
 
-            var prize=tvItemPrice.text.toString()
-            prizeInt=prize.toInt()
+            prizeInt=price.toInt()
 
 
 //            qty=tvItemQty.text.toString()
@@ -141,8 +145,16 @@ class FoodOrderMenuListAdapter (private var context: Context,
             tvItemPrice.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable) {
-                    prize=tvItemPrice.text.toString()
-                    prizeInt=prize.toInt()
+                    price=tvItemPrice.text.toString()
+//
+                    val splitPrice=price.split(",")
+
+                    var strprice=""
+                    for (splits in splitPrice){
+                        strprice+=splits
+                    }
+                    Log.e("split price",strprice.toString())
+                    prizeInt=strprice.toInt()
                     total += prizeInt
                     qty=tvItemQty.text.toString()
                     qtyInt=qty.toInt()
@@ -173,7 +185,8 @@ class FoodOrderMenuListAdapter (private var context: Context,
                 Log.e("total",totalPrize.toString())
 
                 tvItemQty.text = totalQty.toString()
-                tvItemPrice.text=totalPrize.toString()
+                val myprice=totalPrize
+                tvItemPrice.text=dec.format(myprice)
 
                 val position=adapterPosition
                 val itemObj= itemListObj1[adapterPosition]
@@ -195,7 +208,8 @@ class FoodOrderMenuListAdapter (private var context: Context,
 
                 tvItemQty.text = totalQty.toString()
 
-                tvItemPrice.text=totalPrize.toString()
+                val myprice=totalPrize
+                tvItemPrice.text=dec.format(myprice)
 
                 itemListObj1.removeAt(adapterPosition)
 

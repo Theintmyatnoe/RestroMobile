@@ -123,7 +123,7 @@ class FoodOrderActivity: AppCompatActivity(), SendIdDelegate, View.OnClickListen
         custType=intent.getStringExtra("CustomerType")
 
         var date = Date()
-        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        val formatter = SimpleDateFormat("yyy-MM-dd HH:mm:ss.sss")
         currentdate = formatter.format(date)
 
 
@@ -206,11 +206,8 @@ class FoodOrderActivity: AppCompatActivity(), SendIdDelegate, View.OnClickListen
     override fun sendId(tableID: String) {
         if (tableID.isNotEmpty() && tableID!=""){
             orderMenuList= appDatabase!!.getMenuItemDAO().getAllMenuItemByID(tableID)
-            for (menusItem in orderMenuList!!){
 
-                val totalPrice=menusItem.Price
-                val price:Int=totalPrice.toInt()
-//                total+=price
+            for (menusItem in orderMenuList!!){
 
                 val itemListObj1=ItemListObj(itemID = menusItem.Menu_itemID,itemName = menusItem.Menu_ItemName,price = menusItem.Price,qty = "1")
                 itemList?.add(itemListObj1)
@@ -284,7 +281,8 @@ class FoodOrderActivity: AppCompatActivity(), SendIdDelegate, View.OnClickListen
                 var invoiceID=UUID.randomUUID().toString()
                 invoice.invoiceID=invoiceID
                 invoice.invoiceNo=invoiceCount.toString()
-                invoice.date= this.currentdate.toString()
+                invoice.date= currentdate!!
+                Log.e("curDate",currentdate)
                 invoice.totalPrice=totalPriceForOrder.toString()
                 invoice.customerType= custType.toString()
                 invoice.tableNo= this.tableNo.toString()

@@ -18,6 +18,7 @@ import com.example.restromobile.database.model.InvoiceTable
 import kotlinx.android.synthetic.main.activity_invoices.*
 import kotlinx.android.synthetic.main.activity_orders.*
 import kotlinx.android.synthetic.main.custom_menu_bar.*
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,6 +33,8 @@ class InvoiceListActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_invoices)
+        supportActionBar?.title="Invoice List"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         appDatabase= AppDatabase.getDatabase(this)
         calendar = Calendar.getInstance()
@@ -40,6 +43,8 @@ class InvoiceListActivity: AppCompatActivity() {
         var formatter = SimpleDateFormat("yyyy-MM-dd")
         tv_date.text = formatter.format(date)
         myDate=tv_date.text.toString().trim()
+
+
 
         tv_date.addTextChangedListener(object : TextWatcher {
 

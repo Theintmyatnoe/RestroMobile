@@ -9,9 +9,9 @@ interface InvoiceDAO {
     @Insert
     fun add(invoiceTable: InvoiceTable)
 
-    @Query(value = "Select * from InvoiceTable")
+    @Query(value = "Select * from InvoiceTable order by date desc")
     fun getAll():List<InvoiceTable>
 
-    @Query(value = "Select * from InvoiceTable where date=:date")
+    @Query(value = "Select * from InvoiceTable where date like '%' || :date || '%' order by date desc")
     fun getAllByDate(date:String):List<InvoiceTable>
 }
